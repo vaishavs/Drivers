@@ -1,0 +1,15 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+bitset:402:7:static constexpr std::size_t std::_Base_bitset<1>::_S_whichbit(std::size_t)	16	static
+bitset:406:7:static constexpr std::_Base_bitset<1>::_WordT std::_Base_bitset<1>::_S_maskbit(std::size_t)	16	static
+bitset:410:7:std::_Base_bitset<1>::_WordT& std::_Base_bitset<1>::_M_getword(std::size_t)	16	static
+bitset:482:7:long unsigned int std::_Base_bitset<1>::_M_do_to_ulong() const	16	static
+rcc.cpp:16:10:uint32_t GetPLLClock()	72	static
+rcc.cpp:42:10:uint32_t GetSysClockFreq()	16	static
+rcc.cpp:59:10:uint32_t GetHClock()	16	static
+rcc.cpp:65:10:uint32_t GetPClock1()	16	static
+rcc.cpp:71:10:uint32_t GetPClock2()	16	static
+bitset:1163:7:std::bitset<_Nb>::reference std::bitset<_Nb>::operator[](std::size_t) [with unsigned int _Nb = 32]	24	static
+bitset:823:2:std::bitset<_Nb>::reference::~reference() [with unsigned int _Nb = 32]	16	static
+bitset:854:2:std::bitset<_Nb>::reference::operator bool() const [with unsigned int _Nb = 32]	24	static
+bitset:1178:7:long unsigned int std::bitset<_Nb>::to_ulong() const [with unsigned int _Nb = 32]	16	static
+bitset:813:2:std::bitset<_Nb>::reference::reference(std::bitset<_Nb>&, std::size_t) [with unsigned int _Nb = 32]	24	static

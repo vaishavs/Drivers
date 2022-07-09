@@ -1,0 +1,16 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+bitset:402:7:static constexpr std::size_t std::_Base_bitset<1>::_S_whichbit(std::size_t)	16	static
+bitset:406:7:static constexpr std::_Base_bitset<1>::_WordT std::_Base_bitset<1>::_S_maskbit(std::size_t)	16	static
+bitset:410:7:std::_Base_bitset<1>::_WordT& std::_Base_bitset<1>::_M_getword(std::size_t)	16	static
+gpio.h:61:2:GPIO::GPIO(GPIO_t*)	16	static
+gpio.h:76:7:void GPIO::setMode(uint8_t, bool)	24	static
+gpio.h:89:7:void GPIO::setMode(uint8_t)	16	static
+gpio.h:99:7:void GPIO::setPortcode()	16	static
+main.cpp:25:5:int main()	32	static
+bitset:1089:7:std::bitset<_Nb>& std::bitset<_Nb>::set(std::size_t, bool) [with unsigned int _Nb = 32]	24	static
+bitset:1163:7:std::bitset<_Nb>::reference std::bitset<_Nb>::operator[](std::size_t) [with unsigned int _Nb = 32]	24	static
+bitset:823:2:std::bitset<_Nb>::reference::~reference() [with unsigned int _Nb = 32]	16	static
+bitset:828:2:std::bitset<_Nb>::reference& std::bitset<_Nb>::reference::operator=(bool) [with unsigned int _Nb = 32]	16	static
+bitset:770:12:void std::bitset<_Nb>::_M_check(std::size_t, const char*) const [with unsigned int _Nb = 32]	24	static
+bitset:1041:7:std::bitset<_Nb>& std::bitset<_Nb>::_Unchecked_set(std::size_t, int) [with unsigned int _Nb = 32]	32	static
+bitset:813:2:std::bitset<_Nb>::reference::reference(std::bitset<_Nb>&, std::size_t) [with unsigned int _Nb = 32]	24	static

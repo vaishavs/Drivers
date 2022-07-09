@@ -1,0 +1,23 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+bitset:386:17:constexpr std::_Base_bitset<1>::_Base_bitset(long long unsigned int)	24	static
+bitset:436:7:void std::_Base_bitset<1>::_M_do_or(const std::_Base_bitset<1>&)	16	static
+main.h:13:7:API<GPIO_t>::API()	16	static
+gpio.h:56:2:GPIO::GPIO(GPIO_t*, uint8_t)	24	static
+gpio.h:57:2:GPIO::~GPIO()	16	static
+gpio.h:80:7:void GPIO::setMode(uint8_t, uint8_t)	24	static
+gpio.h:87:7:void GPIO::setMode(uint8_t)	16	static
+main.h:13:7:API<USART_t>::API()	16	static
+usart.h:71:2:USART::USART(USART_t*)	16	static
+usart.h:72:2:USART::~USART()	16	static
+main.h:13:7:constexpr API<GPIO_t>::API(const API<GPIO_t>&)	16	static
+gpio.h:48:7:constexpr GPIO::GPIO(const GPIO&)	16	static
+usart_demo.cpp:24:5:int main()	72	static
+usart_demo.cpp:44:6:void GPIO_Init()	112	static
+usart_demo.cpp:69:6:void GPIO_Button_Init(GPIO)	16	static
+usart_demo.cpp:76:6:void USART_Init()	24	static
+bitset:874:17:constexpr std::bitset<_Nb>::bitset(long long unsigned int) [with unsigned int _Nb = 32]	32	static
+bitset:979:7:std::bitset<_Nb>& std::bitset<_Nb>::operator|=(const std::bitset<_Nb>&) [with unsigned int _Nb = 32]	16	static
+bitset:682:7:static constexpr long long unsigned int std::_Sanitize_val<_Nb, true>::_S_do_sanitize_val(long long unsigned int) [with unsigned int _Nb = 32]	24	static
+usart_demo.cpp:79:1:void __static_initialization_and_destruction_0(int, int)	16	static
+usart_demo.cpp:79:1:cpp)	8	static
+usart_demo.cpp:79:1:cpp)	8	static

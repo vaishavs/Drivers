@@ -1,0 +1,18 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+bitset:386:17:constexpr std::_Base_bitset<1>::_Base_bitset(long long unsigned int)	24	static
+bitset:436:7:void std::_Base_bitset<1>::_M_do_or(const std::_Base_bitset<1>&)	16	static
+gpio.h:55:2:GPIO::GPIO(GPIO_t*)	16	static
+gpio.h:78:7:void GPIO::setMode(uint8_t, uint8_t)	24	static
+gpio.h:85:7:void GPIO::setMode(uint8_t)	16	static
+spi.h:57:2:SPI::SPI(SPI_t*)	16	static
+spi.h:59:2:SPI::~SPI()	16	static
+spi_demo.cpp:24:5:int main()	48	static
+spi_demo.cpp:49:6:void GPIO_Init()	56	static
+spi_demo.cpp:70:6:void GPIO_Button_Init(GPIO)	24	static
+spi_demo.cpp:77:6:void SPI_Init()	24	static
+bitset:874:17:constexpr std::bitset<_Nb>::bitset(long long unsigned int) [with unsigned int _Nb = 32]	32	static
+bitset:979:7:std::bitset<_Nb>& std::bitset<_Nb>::operator|=(const std::bitset<_Nb>&) [with unsigned int _Nb = 32]	16	static
+bitset:682:7:static constexpr long long unsigned int std::_Sanitize_val<_Nb, true>::_S_do_sanitize_val(long long unsigned int) [with unsigned int _Nb = 32]	24	static
+spi_demo.cpp:80:1:void __static_initialization_and_destruction_0(int, int)	16	static
+spi_demo.cpp:80:1:cpp)	8	static
+spi_demo.cpp:80:1:cpp)	8	static

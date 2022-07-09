@@ -1,0 +1,29 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+bitset:386:17:constexpr std::_Base_bitset<1>::_Base_bitset(long long unsigned int)	24	static
+bitset:402:7:static constexpr std::size_t std::_Base_bitset<1>::_S_whichbit(std::size_t)	16	static
+bitset:406:7:static constexpr std::_Base_bitset<1>::_WordT std::_Base_bitset<1>::_S_maskbit(std::size_t)	16	static
+bitset:410:7:std::_Base_bitset<1>::_WordT& std::_Base_bitset<1>::_M_getword(std::size_t)	16	static
+bitset:436:7:void std::_Base_bitset<1>::_M_do_or(const std::_Base_bitset<1>&)	16	static
+bitset:482:7:long unsigned int std::_Base_bitset<1>::_M_do_to_ulong() const	16	static
+i2c.cpp:19:6:virtual void I2C::ClockControl(bool)	16	static
+i2c.cpp:33:6:virtual void I2C::DeInit()	16	static
+i2c.cpp:56:6:void I2C::Init(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	40	static
+i2c.cpp:108:6:void I2C::MasterTransmit(uint16_t, uint8_t*, uint8_t)	72	static
+i2c.cpp:157:6:void I2C::MasterReceive(uint16_t, uint8_t*, uint8_t)	80	static
+i2c.cpp:263:6:void I2C::SlaveTransmit(uint8_t*, uint8_t)	56	static
+i2c.cpp:301:6:void I2C::SlaveReceive(uint8_t*, uint8_t)	56	static
+i2c.cpp:341:6:void I2C::ClearAddressFlag()	24	static
+i2c.cpp:349:6:void I2C::ClearStopFlag()	24	static
+bitset:1089:7:std::bitset<_Nb>& std::bitset<_Nb>::set(std::size_t, bool) [with unsigned int _Nb = 32]	24	static
+bitset:1113:7:std::bitset<_Nb>& std::bitset<_Nb>::reset(std::size_t) [with unsigned int _Nb = 32]	16	static
+bitset:874:17:constexpr std::bitset<_Nb>::bitset(long long unsigned int) [with unsigned int _Nb = 32]	32	static
+bitset:979:7:std::bitset<_Nb>& std::bitset<_Nb>::operator|=(const std::bitset<_Nb>&) [with unsigned int _Nb = 32]	16	static
+bitset:1163:7:std::bitset<_Nb>::reference std::bitset<_Nb>::operator[](std::size_t) [with unsigned int _Nb = 32]	24	static
+bitset:823:2:std::bitset<_Nb>::reference::~reference() [with unsigned int _Nb = 32]	16	static
+bitset:854:2:std::bitset<_Nb>::reference::operator bool() const [with unsigned int _Nb = 32]	24	static
+bitset:1178:7:long unsigned int std::bitset<_Nb>::to_ulong() const [with unsigned int _Nb = 32]	16	static
+bitset:770:12:void std::bitset<_Nb>::_M_check(std::size_t, const char*) const [with unsigned int _Nb = 32]	24	static
+bitset:1041:7:std::bitset<_Nb>& std::bitset<_Nb>::_Unchecked_set(std::size_t, int) [with unsigned int _Nb = 32]	32	static
+bitset:1051:7:std::bitset<_Nb>& std::bitset<_Nb>::_Unchecked_reset(std::size_t) [with unsigned int _Nb = 32]	24	static
+bitset:682:7:static constexpr long long unsigned int std::_Sanitize_val<_Nb, true>::_S_do_sanitize_val(long long unsigned int) [with unsigned int _Nb = 32]	24	static
+bitset:813:2:std::bitset<_Nb>::reference::reference(std::bitset<_Nb>&, std::size_t) [with unsigned int _Nb = 32]	24	static
