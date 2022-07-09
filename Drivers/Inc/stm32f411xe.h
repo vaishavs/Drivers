@@ -23,11 +23,7 @@
   ******************************************************************************
   */
 
-/** @addtogroup CMSIS_Device
-  * @{
-  */
-
-/** @addtogroup stm32f411xe
+/** @addtogroup CMSIS_Device_stm32f411xe
   * @{
   */
     
@@ -92,7 +88,6 @@ typedef bitset<32> bit32_t; //32-bit architecture
 /*
  * @}
  */
-
 
 /**
   * @}
@@ -1918,7 +1913,6 @@ typedef struct
 #define USART_GTPR_GT_Pos             (8U)                                     
 #define USART_GTPR_GT                 (0xFFUL << USART_GTPR_GT_Pos)             /*!< 0x0000FF00 */
 
-
 /**
   * @}
   */ 
@@ -2001,7 +1995,6 @@ typedef struct
 
 
 #endif /* __STM32F411xE_H */
-
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
