@@ -374,9 +374,6 @@ typedef struct
   * @}
   */
 
-/** @addtogroup Exported_constants
-  * @{
-  */
 
 /** @addtogroup Hardware_Constant_Definition
   * @{
@@ -1778,7 +1775,6 @@ typedef struct
 #define SPI_I2SPR_MCKOE             (0x1UL << SPI_I2SPR_MCKOE_Pos)              /*!< 0x00000200 */
 
 
-
 /******************************************************************************/
 /*                                                                            */
 /*         Universal Synchronous Asynchronous Receiver Transmitter            */
@@ -1988,6 +1984,10 @@ typedef struct
 
 #define RCC_PLLN_MIN_VALUE                 50U
 #define RCC_PLLN_MAX_VALUE                432U
+
+/**
+  * @}
+  */
 
 /**
   * @}
