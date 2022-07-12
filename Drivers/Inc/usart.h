@@ -74,7 +74,7 @@ public:
   void ClockControl(bool En_Dis);
   void Init(uint8_t WordLen, uint8_t Parity, uint8_t Mode, uint8_t StopBits, uint8_t HWFlow, uint32_t Baudrate);
   void DeInit();
-  void SetBaudRate(uint32_t BaudRate);
+  void SetBaudRate();
 
   //Data transmission
   void Transmit(uint8_t *pTxData, uint8_t Size);
