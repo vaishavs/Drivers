@@ -10,7 +10,7 @@
 #include "rcc.h"
 
 /**
-  * @name        ClockControl
+  * @name       ClockControl
   * @brief      Enables or disables the clock
   * @param[in]  En_Dis: Enable or Disable
   * @retval     None
@@ -44,7 +44,7 @@ void USART::DeInit()
 }
 
 /**
-  * @name    Init
+  * @name   Init
   * @brief  Initializes the peripheral.
   * @param  None
   * @retval None
@@ -78,7 +78,7 @@ void USART::Init(uint8_t wordlen, uint8_t parity, uint8_t mode, uint8_t stopbits
 }
 
 /**
-  * @name        Transmit
+  * @name       Transmit
   * @brief      Sends the data.
   * @param[in]  TxBuf: TX buffer
   * @param[in]  Size: No. of bytes to send
@@ -117,7 +117,7 @@ void USART::Transmit(uint8_t *pTxData, uint8_t Size)
 }
 
 /**
-  * @name        Receive
+  * @name       Receive
   * @brief      Receives the data.
   * @param[in]  RxBuf: RX buffer
   * @param[in]  Size: No. of bytes left
@@ -163,7 +163,7 @@ void USART::Receive(uint8_t *pRxData, uint8_t Size)
 }
 
 /**
-  * @name        TransmitReceive
+  * @name       TransmitReceive
   * @brief      Transmits and receives the data.
   * @param[in]  TxBuf: TX buffer
   * @param[in]  RxBuf: RX buffer
@@ -232,13 +232,13 @@ void USART::TransmitReceive(uint8_t *pTxData, uint8_t *pRxData, uint8_t Size)
 }
 
 /**
-  * @name        SetBaudRate
+  * @name       SetBaudRate
   * @brief      Calculates the baud rate.
-  * @param[in]  BaudRate: Baud Rate
+  * @param      None
   * @retval     None
   * @note       None
   */
-void USART::SetBaudRate(uint32_t BaudRate)
+void USART::SetBaudRate()
 {
   uint32_t PCLKx, usartdiv;
   uint32_t M_part,F_part; //Mantissa and Fraction values
@@ -252,9 +252,9 @@ void USART::SetBaudRate(uint32_t BaudRate)
 
   //Check for OVER8 configuration bit
   if(pReg->CR1[USART_CR1_OVER8_Pos])
-    usartdiv = ((25 * PCLKx) / (2 *BaudRate)); //OVER8 = 1 , over sampling by 8
+    usartdiv = ((25 * PCLKx) / (2 *Baud)); //OVER8 = 1 , over sampling by 8
   else
-    usartdiv = ((25 * PCLKx) / (4 *BaudRate)); //OVER8 = 1 , over sampling by 16
+    usartdiv = ((25 * PCLKx) / (4 *Baud)); //OVER8 = 1 , over sampling by 16
 
   //Calculate the Mantissa part
   M_part = usartdiv/100;
