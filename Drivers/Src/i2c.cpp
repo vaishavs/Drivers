@@ -33,7 +33,7 @@ void I2C::ClockControl(bool En_Dis)
 void I2C::DeInit()
 {
   pReg->CR1.reset(I2C_CR1_PE_Pos); //Disable peripheral
-  this->ClockControl(DIS);
+  ClockControl(DIS);
 
   if(pReg==I2C1) RCC->APB1RSTR.set(RCC_APB1RSTR_I2C1RST_Pos);
   else if(pReg==I2C2) RCC->APB1RSTR.set(RCC_APB1RSTR_I2C2RST_Pos);
