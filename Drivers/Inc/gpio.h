@@ -25,10 +25,10 @@
 #define GPIO_TYPE_OD  1 //Open drain
 
 //Speed
-#define GPIO_SPEED_LOW    0 //Low speed
+#define GPIO_SPEED_LOW     0 //Low speed
 #define GPIO_SPEED_MEDIUM  1 //Medium speed
-#define GPIO_SPEED_FAST   2 //Fast speed
-#define GPIO_SPEED_HIGH   3 //High speed
+#define GPIO_SPEED_FAST    2 //Fast speed
+#define GPIO_SPEED_HIGH    3 //High speed
 
 //Pullup or pull-down
 #define GPIO_PULL_NONE  0 //No push-pull
