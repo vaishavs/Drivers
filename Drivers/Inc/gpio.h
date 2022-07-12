@@ -35,10 +35,6 @@
 #define GPIO_PULL_UP    1 //Pullup
 #define GPIO_PULL_DOWN  2 //Pull-down
 
-//Lock configuration
-#define GPIO_LOCK_INACTIVE  0 //Configuration register lock inactive
-#define GPIO_LOCK_ACTIVE    1 //Configuration register lock active
-
 //Alternate functions: 0 to 15
 
 /*
