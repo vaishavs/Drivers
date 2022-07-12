@@ -40,7 +40,7 @@ void USART::DeInit()
   if(pReg == USART2) RCC->APB1RSTR.set(RCC_APB1RSTR_USART2RST_Pos);
   if(pReg == USART6) RCC->APB2RSTR.set(RCC_APB2RSTR_USART6RST_Pos);
 
-  delete pReg;
+  delete[] pReg;
 }
 
 /**
