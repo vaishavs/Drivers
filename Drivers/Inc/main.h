@@ -45,7 +45,7 @@ protected:
 public:
   virtual void ClockControl(bool En_Dis) = 0;
   virtual void DeInit() = 0;
-  void Init();
+  virtual void Init() = 0;
 };
 
 
