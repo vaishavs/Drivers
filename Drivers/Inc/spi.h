@@ -49,7 +49,7 @@
 class SPI : API<SPI_t>
 {
   uint8_t *pRxBuf, *pTxBuf, TxCount, RxCount;
-  uint8_t BusCfg, Speed, DFF, CPOL, CPHA, SSM;
+  uint8_t BusCfg, DFF, CPOL, CPHA, SSM;
 
 public:
   SPI(){}
