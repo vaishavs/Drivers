@@ -39,7 +39,7 @@ public:
   I2C(){}
   I2C(I2C_t *reg, uint8_t mode, uint8_t speed, uint8_t devaddr, uint8_t ack, uint8_t dutycycle)
   {
-  	pReg=reg;
+    pReg=reg;
     Mode = mode; Speed = speed;
     DeviceAddress = devaddr;
     Ack = ack;   DutyCycle = dutycycle;
