@@ -42,8 +42,7 @@
  */
 class GPIO : API<GPIO_t>
 {
-  GPIO_t* pReg;
-  uint8_t Pin, Mode, Speed, Pull, OutputType, AltFn;
+  uint8_t Pin, Speed, Pull, OutputType, AltFn;
 
 public:
   //Constructor
