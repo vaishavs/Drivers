@@ -47,11 +47,15 @@ class GPIO : API<GPIO_t>
 public:
   //Constructor
   GPIO(){}
-  GPIO(GPIO_t* reg, uint8_t pin) { pReg=reg; Pin=pin; }
+  GPIO(GPIO_t* reg, uint8_t pin, uint8_t speed, uint8_t pull)
+  {
+  	pReg=reg; Pin=pin;
+  	Speed = speed; Pull = pull;
+  }
   ~GPIO() { DeInit(); }
 
   //Init functions
-  void Init(uint8_t Speed, uint8_t Pull);
+  void Init();
   void DeInit();
   void ClockControl(bool En_Dis);
 
@@ -62,22 +66,23 @@ public:
   void WritePort(uint32_t value);
   void TogglePin();
 
-  //Set different modes
-  void setMode(uint8_t mode, bool outputType) {
+  //For output and alternate function modes
+  void setMode(uint8_t mode, uint8_t config) {
     Mode = mode;
-    OutputType = outputType;
 
-    if(OutputType) pReg->OTYPER[Pin] = 1;
-    else pReg->OTYPER[Pin] = 0;
+    if(Mode==GPIO_MODE_OUTPUT)
+    {
+    	OutputType = config; // Push-pull or open-drain
+      pReg->OTYPER[Pin] = (bool)OutputType;
+    }
+    else if(Mode == GPIO_MODE_ALTFN)
+    {
+    	AltFn = config; //Alternate function
+    	SET_BITS(pReg->AFR[Pin / 8], (AltFn << 4*(Pin % 8)));
+    }
   }
 
-  void setMode(uint8_t mode, uint8_t altfn) {
-    Mode = mode;
-    AltFn = altfn;
-
-    SET_BITS(pReg->AFR[Pin / 8], (AltFn << 4*(Pin % 8)));
-  }
-
+  //For input and analog modes
   void setMode(uint8_t mode)
   {
     Mode = mode;
