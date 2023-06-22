@@ -32,8 +32,7 @@
  */
 class I2C : API<I2C_t>
 {
-  I2C_t *pReg;
-  uint8_t Mode, Speed, DeviceAddress, Ack, DutyCycle;
+  uint8_t Speed, DeviceAddress, Ack, DutyCycle;
   uint8_t *pBuf, Len;
 
 public:
