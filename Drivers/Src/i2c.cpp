@@ -38,8 +38,6 @@ void I2C::DeInit()
   if(pReg==I2C1) RCC->APB1RSTR.set(RCC_APB1RSTR_I2C1RST_Pos);
   else if(pReg==I2C2) RCC->APB1RSTR.set(RCC_APB1RSTR_I2C2RST_Pos);
   else if(pReg==I2C3) RCC->APB1RSTR.set(RCC_APB1RSTR_I2C3RST_Pos);
-
-  delete[] pReg; delete[] pBuf;
 }
 
 /**
