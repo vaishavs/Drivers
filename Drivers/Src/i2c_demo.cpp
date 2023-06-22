@@ -19,11 +19,11 @@ void GPIO_Init();
 void GPIO_Button_Init(GPIO button);
 void I2C_Init();
 
-I2C i2c1(I2C1);
+I2C i2c1(I2C1, I2C_MODE_MASTER, I2C_SPEED_FM4K, 0x61, EN, I2C_DUTY_2);
 
 int main(void)
 {
-	GPIO button(GPIOC,13);
+	GPIO button(GPIOC,13, GPIO_SPEED_HIGH, GPIO_PULL_NONE);
 
 	GPIO_Init();
 	GPIO_Button_Init(button);
@@ -46,23 +46,23 @@ void GPIO_Init()
 {
 	//PB6-SCL, PB7-SDA; AF4
 
-	GPIO scl(GPIOB,6);
-	scl.setMode(GPIO_MODE_ALTFN, (uint8_t)4);
-	scl.Init(GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	GPIO scl(GPIOB,6, GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	scl.setMode(GPIO_MODE_ALTFN, 4);
+	scl.Init();
 
-	GPIO sda(GPIOB,7);
-	sda.setMode(GPIO_MODE_ALTFN, (uint8_t)4);
-	sda.Init(GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	GPIO sda(GPIOB,7, GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	sda.setMode(GPIO_MODE_ALTFN, 4);
+	sda.Init();
 }
 
 void GPIO_Button_Init(GPIO button)
 {
 	//Initialize User button: PC13
 	button.setMode(GPIO_MODE_INPUT); //Set as input pin
-	button.Init(GPIO_SPEED_HIGH, GPIO_PULL_NONE); //Initialize rest of the parameters
+	button.Init(); //Initialize rest of the parameters
 }
 
 void I2C_Init()
 {
-	i2c1.Init(I2C_MODE_MASTER, I2C_SPEED_FM4K, 0x61, EN, I2C_DUTY_2);
+	i2c1.Init();
 }
