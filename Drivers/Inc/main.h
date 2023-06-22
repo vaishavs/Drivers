@@ -33,14 +33,14 @@
 #define MODIFY_REG(REG, CLEARMASK, SETMASK)  WRITE_REG((REG), (((READ_REG(REG)) & (~(CLEARMASK))) | (SETMASK)))
 
 /*
- * Class definition
+ * Abstract class definition
  */
 template<typename T>
 class API
 {
 protected:
   T *pReg;
-  uint8_t Mode;
+  uint8_t Mode, Speed;
 
 public:
   virtual void ClockControl(bool En_Dis) = 0;
