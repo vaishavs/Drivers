@@ -40,6 +40,7 @@ class API
 {
 protected:
   T *pReg;
+  uint8_t Mode;
 
 public:
   virtual void ClockControl(bool En_Dis) = 0;
