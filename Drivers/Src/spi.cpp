@@ -49,7 +49,7 @@ void SPI::DeInit()
 /**
   * @name       Init
   * @brief      Resets the peripheral.
-  * @param[in]  DevMode: Master or slave
+  * @param[in]  Mode: Master or slave
   * @param[in]  BusCfg: Full duplex or half duplex or simplex
   * @param[in]  DFF: 8-bit or 16-bit data frame
   * @param[in]  CPOL: Clock polarity
@@ -63,10 +63,10 @@ void SPI::Init(uint8_t devmode, uint8_t buscfg, uint8_t speed, uint8_t dff, uint
   Speed = speed;   CPHA = cpha;
   CPOL = cpol;     SSM = ssm;
   DFF = dff;       BusCfg = buscfg;
-  DevMode=devmode;
+  Mode=devmode;
 
   //Device mode
-  pReg->CR1.set(SPI_CR1_MSTR_Pos, DevMode);
+  pReg->CR1.set(SPI_CR1_MSTR_Pos, Mode);
 
   //Bus configuration
   SET_BITS(pReg->CR1, BusCfg);
@@ -85,7 +85,7 @@ void SPI::Init(uint8_t devmode, uint8_t buscfg, uint8_t speed, uint8_t dff, uint
 
   //SSM
   if(SSM) pReg->CR1.set(SPI_CR1_SSI_Pos);
-  else if(DevMode==SPI_DEV_MASTER) pReg->CR1.set(SPI_CR2_SSOE_Pos);
+  else if(Mode==SPI_DEV_MASTER) pReg->CR1.set(SPI_CR2_SSOE_Pos);
   pReg->CR1.set(SPI_CR1_SSM_Pos, SSM);
 
   //Enable SPI
@@ -181,7 +181,7 @@ void SPI::TransmitReceive(uint8_t *pTxData, uint8_t *pRxData, uint8_t len)
 
   if(pReg->CR1[SPI_CR1_DFF_Pos])
   {
-    if(DevMode == SPI_DEV_SLAVE)
+    if(Mode == SPI_DEV_SLAVE)
     {
       pReg->DR = *(uint16_t*)pTxBuf;
       pTxBuf += sizeof(uint16_t);
@@ -208,7 +208,7 @@ void SPI::TransmitReceive(uint8_t *pTxData, uint8_t *pRxData, uint8_t len)
 
   else
   {
-    if(DevMode == SPI_DEV_SLAVE)
+    if(Mode == SPI_DEV_SLAVE)
     {
       pReg->DR = *pTxBuf;
       pTxBuf += sizeof(uint8_t);
