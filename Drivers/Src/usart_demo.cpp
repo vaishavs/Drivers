@@ -19,11 +19,11 @@ void GPIO_Init();
 void GPIO_Button_Init(GPIO button);
 void USART_Init();
 
-USART usart2(USART2);
+USART usart2(USART2, USART_WORD_8, USART_PARITY_EVEN, USART_MODE_TX, USART_STOP_1, USART_HW_NONE, USART_BAUD_115200);
 
 int main(void)
 {
-	GPIO button(GPIOC,13);
+	GPIO button(GPIOC,13,GPIO_SPEED_HIGH, GPIO_PULL_NONE);
 
 	GPIO_Init();
 	GPIO_Button_Init(button);
@@ -45,35 +45,35 @@ void GPIO_Init()
 {
 	//PD3-CTS PD4-RTS PD5-TX PD6-RX PD7-CK; AF7
 
-	GPIO cts(GPIOD,3);
-	cts.setMode(GPIO_MODE_ALTFN, (uint8_t)7);
-	cts.Init(GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	GPIO cts(GPIOD,3,GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	cts.setMode(GPIO_MODE_ALTFN, 7);
+	cts.Init();
 
-	GPIO rts(GPIOD,4);
-	rts.setMode(GPIO_MODE_ALTFN, (uint8_t)7);
-	rts.Init(GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	GPIO rts(GPIOD,4,GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	rts.setMode(GPIO_MODE_ALTFN, 7);
+	rts.Init();
 
-	GPIO tx(GPIOD,5);
-	tx.setMode(GPIO_MODE_ALTFN, (uint8_t)7);
-	tx.Init(GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	GPIO tx(GPIOD,5,GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	tx.setMode(GPIO_MODE_ALTFN, 7);
+	tx.Init();
 
-	GPIO rx(GPIOD,6);
-	rx.setMode(GPIO_MODE_ALTFN, (uint8_t)7);
-	rx.Init(GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	GPIO rx(GPIOD,6,GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	rx.setMode(GPIO_MODE_ALTFN, 7);
+	rx.Init();
 
-	GPIO ck(GPIOD,7);
-	ck.setMode(GPIO_MODE_ALTFN, (uint8_t)7);
-	ck.Init(GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	GPIO ck(GPIOD,7,GPIO_SPEED_HIGH, GPIO_PULL_UP);
+	ck.setMode(GPIO_MODE_ALTFN, 7);
+	ck.Init();
 }
 
 void GPIO_Button_Init(GPIO button)
 {
 	//Initialize User button: PC13
 	button.setMode(GPIO_MODE_INPUT); //Set as input pin
-	button.Init(GPIO_SPEED_HIGH, GPIO_PULL_NONE); //Initialize rest of the parameters
+	button.Init(); //Initialize rest of the parameters
 }
 
 void USART_Init()
 {
-	usart2.Init(USART_WORD_8, USART_PARITY_EVEN, USART_MODE_TX, USART_STOP_1, USART_HW_NONE, USART_BAUD_115200);
+	usart2.Init();
 }
