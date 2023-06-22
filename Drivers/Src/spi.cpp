@@ -58,12 +58,8 @@ void SPI::DeInit()
   * @retval     None
   * @note       None
   */
-void SPI::Init(uint8_t devmode, uint8_t buscfg, uint8_t speed, uint8_t dff, uint8_t cpol, uint8_t cpha, uint8_t ssm)
+void SPI::Init()
 {
-  Speed = speed;   CPHA = cpha;
-  CPOL = cpol;     SSM = ssm;
-  DFF = dff;       BusCfg = buscfg;
-  Mode=devmode;
 
   //Device mode
   pReg->CR1.set(SPI_CR1_MSTR_Pos, Mode);
@@ -244,6 +240,6 @@ void SPI::TransmitReceive(uint8_t *pTxData, uint8_t *pRxData, uint8_t len)
 void SPI::CloseCommunication()
 {
   //Wait till BSY flag is reset
-  while(pReg->SR[SPI_SR_BSY]);
+  while(pReg->SR[SPI_SR_BSY_Pos]);
   pReg->CR1.reset(SPI_CR1_SPE_Pos);
 }
