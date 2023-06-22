@@ -48,9 +48,8 @@
  */
 class SPI : API<SPI_t>
 {
-  SPI_t *pReg;
   uint8_t *pRxBuf, *pTxBuf, TxCount, RxCount;
-  uint8_t DevMode, BusCfg, Speed, DFF, CPOL, CPHA, SSM;
+  uint8_t BusCfg, Speed, DFF, CPOL, CPHA, SSM;
 
 public:
   SPI(){}
@@ -60,7 +59,7 @@ public:
 
   //Initialization
   void ClockControl(bool En_Dis);
-  void Init(uint8_t DevMode, uint8_t BusCfg, uint8_t Speed, uint8_t DFF, uint8_t CPOL, uint8_t CPHA, uint8_t SSM);
+  void Init(uint8_t Mode, uint8_t BusCfg, uint8_t Speed, uint8_t DFF, uint8_t CPOL, uint8_t CPHA, uint8_t SSM);
   void DeInit();
 
   //Send and receive data - Blocking mode
