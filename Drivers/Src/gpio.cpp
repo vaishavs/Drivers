@@ -41,8 +41,6 @@ void GPIO::DeInit()
   else if(pReg == GPIOD) RCC->AHB1ENR.set(RCC_AHB1RSTR_GPIODRST_Pos);
   else if(pReg == GPIOE) RCC->AHB1ENR.set(RCC_AHB1RSTR_GPIOERST_Pos);
   else if(pReg == GPIOH) RCC->AHB1ENR.set(RCC_AHB1RSTR_GPIOHRST_Pos);
-
-  delete[] pReg;
 }
 
 /**
