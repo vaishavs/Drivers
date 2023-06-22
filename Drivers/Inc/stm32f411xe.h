@@ -61,7 +61,7 @@
 
 using namespace std;
 
-typedef bitset<64> bit64_t; /* DO NOT USE */
+// typedef bitset<64> bit64_t;
 typedef bitset<32> bit32_t; //32-bit architecture
 
 /*
