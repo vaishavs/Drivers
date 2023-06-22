@@ -53,9 +53,8 @@ void GPIO::DeInit()
   * @retval     None
   * @note       None
   */
-void GPIO::Init(uint8_t speed, uint8_t pull)
+void GPIO::Init()
 {
-  Speed = speed; Pull = pull;
 
   //Configure mode
   SET_BITS(pReg->MODER, (Mode << 2*Pin));
