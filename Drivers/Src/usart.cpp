@@ -44,18 +44,14 @@ void USART::DeInit()
 }
 
 /**
-  * @name   Init
+  * @name    Init
   * @brief  Initializes the peripheral.
   * @param  None
   * @retval None
   * @note   None
   */
-void USART::Init(uint8_t wordlen, uint8_t parity, uint8_t mode, uint8_t stopbits, uint8_t hwflow, uint32_t baudrate)
+void USART::Init()
 {
-  WordLen = wordlen; Parity = parity;
-  Mode = mode;       StopBits = stopbits;
-  HWFlow = hwflow;   Baud = baudrate;
-
   //Mode
   SET_BITS(pReg->CR1, Mode<<USART_CR1_RE_Pos);
 
@@ -72,7 +68,7 @@ void USART::Init(uint8_t wordlen, uint8_t parity, uint8_t mode, uint8_t stopbits
   SET_BITS(pReg->CR3, HWFlow<<USART_CR3_RTSE_Pos);
 
   //Baud rate
-  SetBaudRate(Baud);
+  SetBaudRate();
 
   ClockControl(EN);
 }
