@@ -32,17 +32,23 @@
  */
 class I2C : API<I2C_t>
 {
-  uint8_t Speed, DeviceAddress, Ack, DutyCycle;
+  uint8_t DeviceAddress, Ack, DutyCycle;
   uint8_t *pBuf, Len;
 
 public:
   I2C(){}
-  I2C(I2C_t *reg) { pReg=reg; }
+  I2C(I2C_t *reg, uint8_t mode, uint8_t speed, uint8_t devaddr, uint8_t ack, uint8_t dutycycle)
+  {
+  	pReg=reg;
+    Mode = mode; Speed = speed;
+    DeviceAddress = devaddr;
+    Ack = ack;   DutyCycle = dutycycle;
+  }
   ~I2C() { DeInit(); }
 
   //Initialization
   void ClockControl(bool En_Dis);
-  void Init(uint8_t Mode, uint8_t Speed, uint8_t DeviceAddress, uint8_t Ack, uint8_t DutyCycle);
+  void Init();
   void DeInit();
 
   //Data transmission
