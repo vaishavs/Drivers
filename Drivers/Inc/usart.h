@@ -68,7 +68,7 @@ public:
   USART(){}
   USART(USART_t *reg, uint8_t wordlen, uint8_t parity, uint8_t mode, uint8_t stopbits, uint8_t hwflow, uint32_t baudrate)
   {
-  	pReg = reg;
+    pReg = reg;
     WordLen = wordlen; Parity = parity;
     Mode = mode;       StopBits = stopbits;
     HWFlow = hwflow;   Baud = baudrate;
