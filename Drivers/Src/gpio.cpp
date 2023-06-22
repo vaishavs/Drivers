@@ -35,6 +35,7 @@ void GPIO::ClockControl(bool En_Dis)
 void GPIO::DeInit()
 {
   ClockControl(DIS);
+ 
   if(pReg == GPIOA) RCC->AHB1ENR.set(RCC_AHB1RSTR_GPIOARST_Pos);
   else if(pReg == GPIOB) RCC->AHB1ENR.set(RCC_AHB1RSTR_GPIOBRST_Pos);
   else if(pReg == GPIOC) RCC->AHB1ENR.set(RCC_AHB1RSTR_GPIOCRST_Pos);
