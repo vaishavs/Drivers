@@ -55,7 +55,7 @@ public:
   SPI(){}
   SPI(SPI_t *reg, uint8_t devmode, uint8_t buscfg, uint8_t speed, uint8_t dff, uint8_t cpol, uint8_t cpha, uint8_t ssm)
   {
-  	pReg=reg; Mode=devmode;
+    pReg=reg; Mode=devmode;
     Speed = speed;   CPHA = cpha;
     CPOL = cpol;     SSM = ssm;
     DFF = dff;       BusCfg = buscfg;
