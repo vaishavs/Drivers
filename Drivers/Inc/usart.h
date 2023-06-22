@@ -60,8 +60,7 @@
  */
 class USART : API<USART_t>
 {
-  USART_t *pReg;
-  uint8_t WordLen, Parity, Mode, StopBits, HWFlow;
+  uint8_t WordLen, Parity, StopBits, HWFlow;
   uint32_t Baud;
   uint8_t *pRxBuf, *pTxBuf, Len;
 
