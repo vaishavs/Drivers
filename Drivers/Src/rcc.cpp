@@ -25,13 +25,13 @@ uint32_t GetPLLClock()
   if(RCC->PLLCFGR[RCC_PLLCFGR_PLLSRC_Pos] != RCC_PLLCFGR_PLLSRC_HSI)
   {
      // HSE used as PLL clock source
-    uint32_t plln = read_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLN, RCC_PLLCFGR_PLLN_Pos);
+     uint32_t plln = read_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLN, RCC_PLLCFGR_PLLN_Pos);
      pllvco = (uint32_t) ((uint64_t) 8000000U * ((uint64_t) plln) / (uint64_t)pllm);
   }
   else
   {
      // HSI used as PLL clock source
-    uint32_t plln = read_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLN, RCC_PLLCFGR_PLLN_Pos);
+     uint32_t plln = read_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLN, RCC_PLLCFGR_PLLN_Pos);
      pllvco = (uint32_t) ((uint64_t) 16000000U * ((uint64_t) plln) / (uint64_t)pllm);
   }
   pllp = ((read_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLP, RCC_PLLCFGR_PLLP_Pos) + 1U) *2U);
