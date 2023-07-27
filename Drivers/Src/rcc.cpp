@@ -5,9 +5,15 @@
  *      Author: Vaishnavi
  */
 
-
-#include "main.h"
 #include "rcc.h"
+
+uint32_t read_bits(bit32_t reg, uint32_t mask) {
+	return (reg.to_ulong() & mask);
+}
+
+uint32_t read_mask_value(bit32_t reg, uint32_t mask, uint8_t pos) {
+	return ((reg.to_ulong() << mask)>>pos);
+}
 
 uint32_t SystemCoreClock = 16000000;
 const uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
@@ -46,7 +52,7 @@ uint32_t GetSysClockFreq()
   uint32_t SystemClock;
   uint8_t clksrc;
 
-  clksrc = READ_BITS(RCC->CFGR, RCC_CFGR_SWS); //Read bits 2 and 3
+  clksrc = read_bits(RCC->CFGR, RCC_CFGR_SWS); //Read bits 2 and 3
 
   if(clksrc == RCC_CFGR_SWS_HSI) //HSI
     SystemClock = 16000000;
