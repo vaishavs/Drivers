@@ -25,16 +25,16 @@ uint32_t GetPLLClock()
   if(RCC->PLLCFGR[RCC_PLLCFGR_PLLSRC_Pos] != RCC_PLLCFGR_PLLSRC_HSI)
   {
      // HSE used as PLL clock source
-     uint32_t plln = read_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLN, RCC_PLLCFGR_PLLN_Pos);
+     uint32_t plln = read_mask_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLN, RCC_PLLCFGR_PLLN_Pos);
      pllvco = (uint32_t) ((uint64_t) 8000000U * ((uint64_t) plln) / (uint64_t)pllm);
   }
   else
   {
      // HSI used as PLL clock source
-     uint32_t plln = read_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLN, RCC_PLLCFGR_PLLN_Pos);
+     uint32_t plln = read_mask_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLN, RCC_PLLCFGR_PLLN_Pos);
      pllvco = (uint32_t) ((uint64_t) 16000000U * ((uint64_t) plln) / (uint64_t)pllm);
   }
-  pllp = ((read_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLP, RCC_PLLCFGR_PLLP_Pos) + 1U) *2U);
+  pllp = ((read_mask_value(RCC->PLLCFGR, RCC_PLLCFGR_PLLP, RCC_PLLCFGR_PLLP_Pos) + 1U) *2U);
 
   sysclockfreq = pllvco/pllp;
 
@@ -60,18 +60,19 @@ uint32_t GetSysClockFreq()
 
 uint32_t GetHClock()
 {
-  uint32_t temp = read_value(RCC->CFGR, RCC_CFGR_HPRE, RCC_CFGR_HPRE_Pos);
+  uint32_t temp = read_mask_value(RCC->CFGR, RCC_CFGR_HPRE, RCC_CFGR_HPRE_Pos);
   return (GetSysClockFreq() >> AHBPrescTable[temp]);
 }
 
 uint32_t GetPClock1()
 {
-  uint32_t temp = read_value(RCC->CFGR, RCC_CFGR_PPRE1, RCC_CFGR_PPRE1_Pos);
+  uint32_t temp = read_mask_value(RCC->CFGR, RCC_CFGR_PPRE1, RCC_CFGR_PPRE1_Pos);
   return (GetHClock() >> APBPrescTable[temp]);
 }
 
 uint32_t GetPClock2()
 {
-  uint32_t temp = read_value(RCC->CFGR, RCC_CFGR_PPRE2, RCC_CFGR_PPRE2_Pos);
+  uint32_t temp = read_mask_value(RCC->CFGR, RCC_CFGR_PPRE2, RCC_CFGR_PPRE2_Pos);
   return (GetHClock() >> APBPrescTable[temp]);
 }
+
