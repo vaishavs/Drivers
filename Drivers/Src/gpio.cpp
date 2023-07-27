@@ -101,7 +101,7 @@ uint8_t GPIO::ReadPin()
   */
 void GPIO::WritePort(uint32_t value)
 {
-  WRITE_REG(pReg->ODR, value);
+  pReg->ODR = value;
 }
 
 /**
