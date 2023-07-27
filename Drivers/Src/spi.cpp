@@ -5,7 +5,6 @@
  *      Author: Vaishnavi
  */
 
-
 #include "spi.h"
 
 /**
@@ -42,6 +41,8 @@ void SPI::DeInit()
   else if(pReg==SPI3) RCC->APB1RSTR.set(RCC_APB1RSTR_SPI3RST_Pos);
   else if(pReg==SPI4) RCC->APB2RSTR.set(RCC_APB2RSTR_SPI4RST_Pos);
   else if(pReg==SPI5) RCC->APB2RSTR.set(RCC_APB2RSTR_SPI5RST_Pos);
+
+  delete(pReg); delete(pRxBuf); delete(pTxBuf);
 }
 
 /**
@@ -193,7 +194,6 @@ void SPI::TransmitReceive(uint8_t *pTxData, uint8_t *pRxData, uint8_t len)
       //Wait till RXNE flag is set
       while(!pReg->SR[SPI_SR_RXNE_Pos]);
 
-
       *(uint16_t*)pRxBuf = pReg->DR.to_ulong(); //Read data into buffer
       RxCount-=2;
       pRxBuf+=sizeof(uint16_t); //Point to next byte
@@ -219,7 +219,6 @@ void SPI::TransmitReceive(uint8_t *pTxData, uint8_t *pRxData, uint8_t len)
 
       //Wait till RXNE flag is set
       while(!pReg->SR[SPI_SR_RXNE_Pos]);
-
 
       *pRxBuf = pReg->DR.to_ulong(); //Read data into buffer
       RxCount-=2;
