@@ -58,7 +58,7 @@ public:
   }
 
   uint32_t read_mask_value(bit32_t reg, uint32_t mask, uint8_t pos) {
-  	return ((reg.to_ulong() << mask)>>pos);
+  	return ((reg.to_ulong() & mask)>>pos);
   }
 };
 
