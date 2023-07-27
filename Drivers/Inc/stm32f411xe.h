@@ -23,6 +23,8 @@
   ******************************************************************************
   */
 
+#include "main.h"     //API class and utility macros
+
 /** @addtogroup CMSIS_Device
   * @{
   */
@@ -47,31 +49,19 @@
 #define __Vendor_SysTickConfig    0U       /*!< Set to 1 if different SysTick Config is used  */
 #define __FPU_PRESENT             1U       /*!< FPU present                                   */
 
+/**
+  * @}
+  */
 
-
-/*
- * @addtogroup Data types
- * @{
- */
-
-#include <cstdint>    //Unsigned integers
-#include <stdbool.h>  //Boolean
-#include <bitset>     //Bitset
-#include "main.h"     //API class and utility macros
-
-using namespace std;
-
-// typedef bitset<64> bit64_t;
-typedef bitset<32> bit32_t; //32-bit architecture
-
-/*
- * @}
- */
 
 /**
   * @}
   */
 
+
+/**
+  * @}
+  */
 
 /**
   * @addtogroup Peripheral_registers_structures
@@ -1893,7 +1883,6 @@ typedef struct
 
 
 #endif /* __STM32F411xE_H */
-
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
