@@ -12,6 +12,18 @@
 #include <cstdbool>
 #include <bitset>
 
+#define SET_BITS(REG, BIT)     ((REG) |= (BIT))
+#define CLEAR_BITS(REG, BIT)   ((REG) &= ~(BIT))
+#define CLEAR_REG(REG)         ((REG) = (0x0))
+#define MODIFY_REG(REG, CLEARMASK, SETMASK)  WRITE_REG((REG), (((READ_REG(REG)) & (~(CLEARMASK))) | (SETMASK)))
+
+using namespace std;
+
+//typedef bitset<64> bit64_t;
+typedef bitset<32> bit32_t; //32-bit architecture
+
+uint32_t read_bits(bit32_t reg, uint32_t mask);
+uint32_t read_mask_value(bit32_t reg, uint32_t mask, uint8_t pos);
 /*
  * Utility Macros
  */
@@ -27,32 +39,6 @@
 #define NO      LOW
 #define RISE    HIGH
 #define FALL    LOW
-
-#define SET_BITS(REG, BIT)     ((REG) |= (BIT))
-#define CLEAR_BITS(REG, BIT)   ((REG) &= ~(BIT))
-#define CLEAR_REG(REG)         ((REG) = (0x0))
-#define MODIFY_REG(REG, CLEARMASK, SETMASK)  WRITE_REG((REG), (((READ_REG(REG)) & (~(CLEARMASK))) | (SETMASK)))
-
-using namespace std;
-
-//typedef bitset<64> bit64_t;
-typedef bitset<32> bit32_t; //32-bit architecture
-
-uint32_t read_bits(bit32_t reg, uint32_t mask)
-{
-	return (reg.to_ulong() & mask);
-}
-
-uint32_t read_mask_value(bit32_t reg, uint32_t mask, uint8_t pos)
-{
-	return (reg.to_ulong() & mask) >> pos;
-}
-
-uint32_t read_value(bit32_t reg, uint32_t bits, uint8_t pos)
-{
-	return (reg.to_ulong() & (bits<<pos)) >> pos;
-}
-
 
 /*
  * Abstract class definition
