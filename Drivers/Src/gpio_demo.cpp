@@ -6,7 +6,6 @@
  * @brief          : Main program body
  ******************************************************************************
  */
-#include "stm32f411xe.h"
 #include "gpio.h"
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
