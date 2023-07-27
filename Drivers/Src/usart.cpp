@@ -39,6 +39,8 @@ void USART::DeInit()
   if(pReg == USART1) RCC->APB2RSTR.set(RCC_APB2RSTR_USART1RST_Pos);
   if(pReg == USART2) RCC->APB1RSTR.set(RCC_APB1RSTR_USART2RST_Pos);
   if(pReg == USART6) RCC->APB2RSTR.set(RCC_APB2RSTR_USART6RST_Pos);
+
+  delete(pReg);
 }
 
 /**
@@ -134,13 +136,13 @@ void USART::Receive(uint8_t *pRxData, uint8_t Size)
       if(Parity == USART_PARITY_NONE)
       {
         //Read first 9 bits of data. so, mask the DR with 0x01FF
-        *((uint16_t*) pRxBuf) = (pReg->DR.to_ulong()  & (uint16_t)0x01FF);
+        *((uint16_t*) pRxBuf) = (uint16_t) read_bits(pReg->DR, 0x01FF);
         pRxBuf++; pRxBuf++;
       }
       else
       {
         //Parity is used, so 8 bits will be of user data and 1 bit is parity
-        *pRxBuf = (pReg->DR.to_ulong()  & (uint8_t)0xFF);
+        *pRxBuf = (uint8_t) read_bits(pReg->DR, 0xFF);
         pRxBuf++;
       }
     }
@@ -149,7 +151,7 @@ void USART::Receive(uint8_t *pRxData, uint8_t Size)
       if(Parity == USART_PARITY_NONE)
         *pRxBuf = pReg->DR.to_ulong(); //Read 8 bits from DR
       else
-        *pRxBuf = (pReg->DR.to_ulong()  & (uint8_t)0x7F); //7 bits will be of user data and 1 bit is parity
+        *pRxBuf = (uint8_t) read_bits(pReg->DR, 0x7F); //7 bits will be of user data and 1 bit is parity
 
       pRxBuf++;
     }
@@ -203,13 +205,13 @@ void USART::TransmitReceive(uint8_t *pTxData, uint8_t *pRxData, uint8_t Size)
       if(Parity == USART_PARITY_NONE)
       {
         //Read first 9 bits of data. so, mask the DR with 0x01FF
-        *((uint16_t*) pRxBuf) = (pReg->DR.to_ulong()  & (uint16_t)0x01FF);
+        *((uint16_t*) pRxBuf) = (uint16_t) read_bits(pReg->DR, 0x01FF);
         pRxBuf++; pRxBuf++;
       }
       else
       {
         //Parity is used, so 8 bits will be of user data and 1 bit is parity
-        *pRxBuf = (pReg->DR.to_ulong()  & (uint8_t)0xFF);
+        *pRxBuf = (uint8_t) read_bits(pReg->DR, 0xFF);
         pRxBuf++;
       }
     }
@@ -218,7 +220,7 @@ void USART::TransmitReceive(uint8_t *pTxData, uint8_t *pRxData, uint8_t Size)
       if(Parity == USART_PARITY_NONE)
         *pRxBuf = pReg->DR.to_ulong(); //Read 8 bits from DR
       else
-        *pRxBuf = (pReg->DR.to_ulong()  & (uint8_t)0x7F); //7 bits will be of user data and 1 bit is parity
+        *pRxBuf = (uint8_t) read_bits(pReg->DR, 0x7F); //7 bits will be of user data and 1 bit is parity
 
       pRxBuf++;
     }
