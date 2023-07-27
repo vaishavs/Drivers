@@ -22,8 +22,6 @@ using namespace std;
 //typedef bitset<64> bit64_t;
 typedef bitset<32> bit32_t; //32-bit architecture
 
-uint32_t read_bits(bit32_t reg, uint32_t mask);
-uint32_t read_mask_value(bit32_t reg, uint32_t mask, uint8_t pos);
 /*
  * Utility Macros
  */
@@ -54,6 +52,14 @@ public:
   virtual void ClockControl(bool En_Dis) = 0;
   virtual void DeInit() = 0;
   virtual void Init() = 0;
+
+  uint32_t read_bits(bit32_t reg, uint32_t mask) {
+  	return (reg.to_ulong() & mask);
+  }
+
+  uint32_t read_mask_value(bit32_t reg, uint32_t mask, uint8_t pos) {
+  	return ((reg.to_ulong() << mask)>>pos);
+  }
 };
 
 
